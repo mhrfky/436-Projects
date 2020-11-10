@@ -15,7 +15,7 @@ class RunnableDemo implements Runnable {
 
     public void run() {
         System.out.println("Running " +  threadName );
-        System.out.println(" " + pid + " " + lock.a.peek() + " " + lock.a.a[0] + " " + lock.a.a[1] + " " + lock.a.a[2]);
+        System.out.println(" " + pid + " ");
 
         for(int i = 0; i < 50; i++) { //checking the mutual exclusion and starvation
             lock.requestCS(pid);

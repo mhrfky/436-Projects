@@ -1,6 +1,6 @@
 import java.util.Queue;
 import java.util.LinkedList;
-class simpleArrayQueue{
+/* class simpleArrayQueue{
     int[] a;
     int head = 0;
     int tail = 0;
@@ -24,24 +24,24 @@ class simpleArrayQueue{
         return a[head];
     }
 }
-
+*/
 class TestAndSetMutex implements Lock {
     TestAndSet lockFlag;
-    public simpleArrayQueue a;
+    int next = -1;
     TestAndSetMutex(){
         lockFlag = new TestAndSet();
-        a = new simpleArrayQueue(3);
     }
 
     @Override
     public void requestCS(int i) {
-        a.add(i);
-        while (a.peek() != i ||lockFlag.testAndSet(1) == 1) ;
+
+        while (next ==1- i||lockFlag.testAndSet(1) == 1) next = i;
     }
     
     @Override
     public void releaseCS(int  i) {
+        if(next == i) next = -1;
         lockFlag.testAndSet(0);
-        a.remove();
+
     }
 } 

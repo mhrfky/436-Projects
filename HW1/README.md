@@ -16,3 +16,7 @@
 * cd src
 * javac Main.java
 * java Main
+
+### Reference:
+For Testing, this code was edited and used.
+https://www.tutorialspoint.com/java/java_multithreading.htm
